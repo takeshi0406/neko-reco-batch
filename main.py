@@ -35,7 +35,9 @@ class TwitterClient(object):
         self.last_id = max(x["id"] for x in tweets)
         return {(x['user']['screen_name'], x["id"]) for x in tweets}
 
-sc = Client(*[os.environ[x] for x in ["TOKEN", "TOKEN_SECRET", "CONSUMER_KEY", "CONSUMER_SECRET"]])
+
+sc = Client(*[os.environ[x] for x in ["ACCESS_TOKEN", "ACCESS_TOKEN_SECRET", "API_KEY", "API_SECRET_KEY"]])
+
 
 def main():
     """ Function for test purposes. """
@@ -45,7 +47,6 @@ def main():
             data=json.dumps({"screen_name": u[0], "id": u[1]}), headers={"Content-Type": "application/json"})
         print(f"posted: {result.text}")
     print(f"Scheduler is alive!")
-
 
 
 if __name__ == "__main__":
