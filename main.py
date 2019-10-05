@@ -51,5 +51,5 @@ def main():
 
 if __name__ == "__main__":
     sched = BackgroundScheduler(daemon=False)
-    sched.add_job(main,'interval', seconds=3)
+    sched.add_job(main,'interval', seconds=30)
     sched.start()
